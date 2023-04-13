@@ -56,7 +56,12 @@ object SecretRecipeDecoder {
    */
   def decodeString(str: String): String = {
     // todo: implement me
-    "1 cup"
+    //"1 cup"
+    val decoded = str.map(e => SecretRecipeDecoder.ENCODING.get(e.toString) match {
+      case Some(strmatch) => strmatch
+      case None => e.toString
+    }).foldLeft("")(_+_)
+    return decoded
   }
 
   /**
