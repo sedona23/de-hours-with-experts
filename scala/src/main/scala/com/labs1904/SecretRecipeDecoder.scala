@@ -71,7 +71,9 @@ object SecretRecipeDecoder {
    */
   def decodeIngredient(line: String): Ingredient = {
     // todo: implement me
-    Ingredient("1 cup", "butter")
+    //Ingredient("1 cup", "butter")
+    val temp = line.split("#").map(e => decodeString(e))
+    Ingredient(temp(0), temp(1))
   }
 
   /**
@@ -79,6 +81,6 @@ object SecretRecipeDecoder {
    * @param args
    */
   def main(args: Array[String]): Unit = {
-    // TODO: implement me
+
   }
 }
